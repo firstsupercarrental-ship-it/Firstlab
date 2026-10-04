@@ -1,6 +1,7 @@
 import { Gauge, Layers, LineChart, MessageCircle, Sparkles, Users } from "lucide-react";
 import { Hero } from "@/components/home/hero";
 import { ReelShowcase } from "@/components/home/reel-showcase";
+import { ClientLogos } from "@/components/client-logos";
 import { CtaSection } from "@/components/cta-section";
 import { ProcessTimeline } from "@/components/process-timeline";
 import { SectionHeading } from "@/components/section-heading";
@@ -73,6 +74,23 @@ export default function Home() {
           </Reveal>
         </div>
         <ServicesGrid />
+      </section>
+
+      <section className="container-x pb-28">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <SectionHeading
+            eyebrow="Our Clients"
+            title="Brands we've built for."
+            highlight={["built"]}
+            text="Websites and mobile apps for Dubai businesses in luxury cars, interior design and automotive finance."
+          />
+          <Reveal className="mb-14">
+            <Button href="/work/" variant="ghost">
+              See the projects
+            </Button>
+          </Reveal>
+        </div>
+        <ClientLogos />
       </section>
 
       <ReelShowcase />

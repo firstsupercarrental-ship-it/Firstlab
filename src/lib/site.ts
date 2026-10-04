@@ -237,3 +237,70 @@ export const faqs = [
     a: "Send us a message on WhatsApp, call 056 136 8008 or fill in the contact form. We will book a short call to understand your business and then share a plan.",
   },
 ];
+
+export type Client = {
+  slug: string;
+  name: string;
+  url: string;
+  domain: string;
+  logo: string;
+  /** Logos drawn on a black (not transparent) background blend into the dark UI. */
+  logoOnBlack?: boolean;
+  image: string;
+  industry: string;
+  summary: string;
+  deliverables: ("Website" | "iOS App" | "Android App")[];
+  appStore?: string;
+  googlePlay?: string;
+};
+
+export const clients: Client[] = [
+  {
+    slug: "first-super-car-rental",
+    name: "First Super Car Rental",
+    url: "https://firstsupercarrental.com/",
+    domain: "firstsupercarrental.com",
+    logo: "/clients/first-super-car-rental.webp",
+    image: "/clients/projects/first-super-car-rental.webp",
+    industry: "Luxury car rental · Dubai",
+    summary:
+      "A full digital product for one of Dubai's luxury and supercar rental brands: a fast, SEO-ready booking website plus native iOS and Android apps.",
+    deliverables: ["Website", "iOS App", "Android App"],
+    appStore: "https://apps.apple.com/app/first-super-car-rental/id6791599812",
+    googlePlay: "https://play.google.com/store/apps/details?id=com.firstsupercarrental.app",
+  },
+  {
+    slug: "la-touche-royale",
+    name: "La Touche Royale",
+    url: "https://www.latoucheroyale.ae/",
+    domain: "latoucheroyale.ae",
+    logo: "/clients/la-touche-royale.webp",
+    image: "/clients/projects/la-touche-royale.webp",
+    industry: "Interior design & fit-out · Dubai",
+    summary: "An elegant portfolio website for a bespoke interior design and turnkey fit-out studio, built around full-screen project stories.",
+    deliverables: ["Website"],
+  },
+  {
+    slug: "drivo",
+    name: "Drivo",
+    url: "https://drivo.autos/",
+    domain: "drivo.autos",
+    logo: "/clients/drivo.webp",
+    image: "/clients/projects/drivo.webp",
+    industry: "Car finance · UAE",
+    summary: "A conversion-focused website for a car sale-and-leaseback service, with an instant quote form that turns visitors into leads.",
+    deliverables: ["Website"],
+  },
+  {
+    slug: "m9-autos",
+    name: "M9 Autos",
+    url: "https://m9autos.com/",
+    domain: "m9autos.com",
+    logo: "/clients/m9-autos.webp",
+    logoOnBlack: true,
+    image: "/clients/projects/m9-autos.webp",
+    industry: "Supercar rental · Dubai",
+    summary: "A premium website for a Dubai supercar and exotic car rental company, showcasing its fleet with fast WhatsApp booking.",
+    deliverables: ["Website"],
+  },
+];
