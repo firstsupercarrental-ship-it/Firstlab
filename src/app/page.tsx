@@ -1,103 +1,111 @@
-import Image from "next/image";
+import { Gauge, Layers, LineChart, MessageCircle, Sparkles, Users } from "lucide-react";
+import { Hero } from "@/components/home/hero";
+import { ReelShowcase } from "@/components/home/reel-showcase";
+import { CtaSection } from "@/components/cta-section";
+import { ProcessTimeline } from "@/components/process-timeline";
+import { SectionHeading } from "@/components/section-heading";
+import { ServicesGrid } from "@/components/services-grid";
+import { Button } from "@/components/ui/button";
+import { Marquee } from "@/components/ui/marquee";
+import { NumberTicker } from "@/components/ui/number-ticker";
+import { Reveal } from "@/components/ui/reveal";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
+import { platforms } from "@/lib/site";
+
+const stats = [
+  { value: 8, suffix: "", label: "Core services under one roof" },
+  { value: 360, suffix: "°", label: "Campaigns from idea to launch" },
+  { value: 24, suffix: "h", label: "Response to every enquiry" },
+];
+
+const reasons = [
+  { icon: Layers, title: "Everything in one lab", text: "Strategy, design, development, ads and video under one roof — no juggling agencies." },
+  { icon: LineChart, title: "Results you can measure", text: "Clear KPIs, live tracking and honest reports on leads, sales and return on spend." },
+  { icon: Users, title: "Local market expertise", text: "We know Dubai's audiences, platforms and seasons, from Ramadan to DSF." },
+  { icon: Gauge, title: "Fast execution", text: "Lean team, quick decisions, and campaigns that go live in days, not months." },
+  { icon: Sparkles, title: "Creative that stands out", text: "Cinematic video, 3D and design that make your brand impossible to scroll past." },
+  { icon: MessageCircle, title: "Always reachable", text: "Talk to the people doing the work, directly on WhatsApp or in our Dubai office." },
+];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <Hero />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <section id="intro" className="border-y border-white/10 bg-ink-900/60 py-8">
+        <Marquee className="[--duration:35s]">
+          {platforms.map((p) => (
+            <span key={p} className="flex items-center gap-12 font-display text-xl text-white/40 sm:text-2xl">
+              {p}
+              <span className="size-2 rotate-45 bg-brand" aria-hidden />
+            </span>
+          ))}
+        </Marquee>
+      </section>
+
+      <section className="container-x grid gap-16 py-28 lg:grid-cols-2 lg:items-end">
+        <SectionHeading
+          eyebrow="Who we are"
+          title="A creative digital lab built for Dubai brands."
+          highlight={["lab", "Dubai"]}
+          text="First Lab is a full-service digital marketing agency in Dubai. We blend data, design and storytelling to help businesses get found, get noticed and get chosen — online and offline."
+        />
+        <div className="grid grid-cols-3 gap-4 lg:mb-14">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.1} className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-6">
+              <NumberTicker value={s.value} suffix={s.suffix} className="block font-display text-3xl text-brand sm:text-4xl" />
+              <p className="mt-3 text-xs leading-snug text-white/60 sm:text-sm">{s.label}</p>
+            </Reveal>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <section id="services" className="container-x pb-28">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <SectionHeading eyebrow="Our Services" title="Everything your brand needs to grow." highlight={["grow."]} />
+          <Reveal className="mb-14">
+            <Button href="/services/" variant="ghost">
+              All services
+            </Button>
+          </Reveal>
+        </div>
+        <ServicesGrid />
+      </section>
+
+      <ReelShowcase />
+
+      <section className="container-x py-28">
+        <SectionHeading
+          eyebrow="Why First Lab"
+          title="Built to deliver growth, not just deliverables."
+          highlight={["growth,"]}
+          center
+        />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {reasons.map((r, i) => (
+            <Reveal key={r.title} delay={(i % 3) * 0.1}>
+              <SpotlightCard className="h-full">
+                <div className="p-8">
+                  <span className="grid size-12 place-items-center rounded-2xl border border-brand/30 bg-brand/10 text-brand">
+                    <r.icon className="size-5" />
+                  </span>
+                  <h3 className="mt-6 text-xl font-bold">{r.title}</h3>
+                  <p className="mt-3 leading-relaxed text-white/60">{r.text}</p>
+                </div>
+              </SpotlightCard>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="relative py-28">
+        <div className="container-x">
+          <SectionHeading eyebrow="How we work" title="From first call to full launch." highlight={["launch."]} center />
+          <ProcessTimeline />
+        </div>
+      </section>
+
+      <CtaSection />
+    </>
   );
 }
