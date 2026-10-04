@@ -6,11 +6,10 @@ import { ProcessTimeline } from "@/components/process-timeline";
 import { SectionHeading } from "@/components/section-heading";
 import { ServicesGrid } from "@/components/services-grid";
 import { Button } from "@/components/ui/button";
-import { Marquee } from "@/components/ui/marquee";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { Reveal } from "@/components/ui/reveal";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
-import { faqs, platforms, site } from "@/lib/site";
+import { faqs, site } from "@/lib/site";
 import { Faq } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
@@ -42,18 +41,7 @@ export default function Home() {
     <>
       <Hero />
 
-      <section id="intro" className="border-y border-white/10 bg-ink-900/60 py-8">
-        <Marquee className="[--duration:35s]">
-          {platforms.map((p) => (
-            <span key={p} className="flex items-center gap-12 font-display text-xl text-white/40 sm:text-2xl">
-              {p}
-              <span className="size-2 rotate-45 bg-brand" aria-hidden />
-            </span>
-          ))}
-        </Marquee>
-      </section>
-
-      <section className="container-x grid gap-16 py-28 lg:grid-cols-2 lg:items-end">
+      <section id="intro" className="container-x grid scroll-mt-24 gap-16 py-28 lg:grid-cols-2 lg:items-end">
         <SectionHeading
           eyebrow="Who we are"
           title="A creative digital lab built for Dubai brands."

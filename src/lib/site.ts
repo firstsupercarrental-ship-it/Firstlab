@@ -211,19 +211,6 @@ export const process = [
   { step: "04", title: "Launch & Grow", text: "We launch, measure, and optimise every week to keep results climbing." },
 ];
 
-export const platforms = [
-  "Google",
-  "Instagram",
-  "TikTok",
-  "Snapchat",
-  "Meta",
-  "YouTube",
-  "LinkedIn",
-  "X",
-  "Shopify",
-  "WordPress",
-];
-
 export const faqs = [
   {
     q: "What does a digital marketing agency in Dubai do?",

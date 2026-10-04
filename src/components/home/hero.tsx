@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
+import { HeroHeadline } from "./hero-headline";
 
 const VIDEOS = {
   wide: { src: "/media/hero-wide.mp4", poster: "/media/hero-wide-poster.jpg" },
@@ -51,18 +52,11 @@ export function Hero() {
         )}
       </motion.div>
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-b from-transparent via-black/50 to-ink-950" />
+      <div className="absolute inset-0 bg-black/25" />
+      <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-b from-transparent via-black/55 to-ink-950" />
 
-      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container-x relative flex h-full items-end pb-24 sm:pb-28">
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-5xl"
-        >
-          <span className="text-gradient-brand">Digital marketing agency in Dubai</span> that makes brands impossible to
-          ignore.
-        </motion.h1>
+      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container-x relative flex h-full items-end justify-center pb-28 sm:pb-32">
+        <HeroHeadline />
       </motion.div>
 
       <motion.a

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Michroma, Plus_Jakarta_Sans } from "next/font/google";
+import { Instrument_Serif, Michroma, Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
@@ -7,6 +7,7 @@ import { services, site } from "@/lib/site";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", variable: "--font-instrument", display: "swap" });
 const michroma = Michroma({ subsets: ["latin"], weight: "400", variable: "--font-michroma", display: "swap" });
 
 export const metadata: Metadata = {
@@ -80,7 +81,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${michroma.variable}`}>
+    <html lang="en" className={`${jakarta.variable} ${michroma.variable} ${serif.variable}`}>
       <body className="font-sans">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Navbar />
