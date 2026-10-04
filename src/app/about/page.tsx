@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Compass, Eye, Target } from "lucide-react";
 import { CtaSection } from "@/components/cta-section";
@@ -9,11 +8,14 @@ import { Marquee } from "@/components/ui/marquee";
 import { Reveal } from "@/components/ui/reveal";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { services } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description: "First Lab Media is a creative digital marketing agency in Dubai blending strategy, design, technology and video.",
-};
+export const metadata = pageMetadata({
+  title: "About Our Dubai Marketing Agency",
+  description:
+    "Meet First Lab Media, a creative digital marketing agency at Azizi Riviera, Dubai, blending strategy, design, technology and video production.",
+  path: "/about/",
+});
 
 const pillars = [
   { icon: Target, title: "Our Mission", text: "To help ambitious UAE businesses grow with marketing that is creative, data-driven and measurable." },

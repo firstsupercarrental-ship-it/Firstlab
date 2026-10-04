@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -6,12 +5,14 @@ import { CtaSection } from "@/components/cta-section";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { services } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Digital Marketing Services in Dubai",
   description:
     "Branding, web & app development, SEO, social media marketing, online advertising, graphic design, content writing and 3D video production in Dubai.",
-};
+  path: "/services/",
+});
 
 export default function ServicesPage() {
   return (

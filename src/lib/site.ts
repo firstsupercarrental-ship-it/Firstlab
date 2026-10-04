@@ -4,7 +4,7 @@ export const site = {
   url: "https://firstlab.ae",
   tagline: "Digital Marketing Agency in Dubai",
   description:
-    "Grow your business with First Lab, a Dubai digital marketing agency for SEO, branding, web design, app development, social media marketing and online advertising.",
+    "Grow your business with First Lab, a Dubai digital marketing agency for SEO, branding, web & app development, social media and online advertising.",
   phone: "056 136 8008",
   phoneHref: "tel:+971561368008",
   whatsapp: "https://wa.me/971561368008",
@@ -222,4 +222,31 @@ export const platforms = [
   "X",
   "Shopify",
   "WordPress",
+];
+
+export const faqs = [
+  {
+    q: "What does a digital marketing agency in Dubai do?",
+    a: "A digital marketing agency helps businesses get found and chosen online. At First Lab that means branding, website and app development, SEO, social media marketing, paid advertising on Google, Meta, TikTok and Snapchat, graphic design, content writing and 3D video production.",
+  },
+  {
+    q: "Where is First Lab located?",
+    a: "Our studio is at Azizi Riviera 46, Shop 26, Dubai, UAE. We work with clients across Dubai and the wider UAE, in person or online.",
+  },
+  {
+    q: "How much does digital marketing cost in Dubai?",
+    a: "It depends on your goals, the services you need and your advertising budget. Tell us what you want to achieve and we will send a clear proposal and quote with no obligation.",
+  },
+  {
+    q: "How long does SEO take to show results?",
+    a: "Most businesses start to see ranking and traffic improvements within three to six months. SEO compounds over time, so results keep building the longer it runs.",
+  },
+  {
+    q: "Can you manage our social media and paid ads together?",
+    a: "Yes. Running content and paid campaigns from one team keeps your message consistent and lets us use what works organically to improve ad performance.",
+  },
+  {
+    q: "How do we get started?",
+    a: "Send us a message on WhatsApp, call 056 136 8008 or fill in the contact form. We will book a short call to understand your business and then share a plan.",
+  },
 ];

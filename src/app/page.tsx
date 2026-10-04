@@ -10,7 +10,17 @@ import { Marquee } from "@/components/ui/marquee";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { Reveal } from "@/components/ui/reveal";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
-import { platforms } from "@/lib/site";
+import { faqs, platforms, site } from "@/lib/site";
+import { Faq } from "@/components/faq";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Digital Marketing Agency Dubai | First Lab",
+  description: site.description,
+  path: "/",
+  absoluteTitle: true,
+});
 
 const stats = [
   { value: 8, suffix: "", label: "Core services under one roof" },
@@ -103,6 +113,18 @@ export default function Home() {
           <SectionHeading eyebrow="How we work" title="From first call to full launch." highlight={["launch."]} center />
           <ProcessTimeline />
         </div>
+      </section>
+
+      <section className="container-x py-28">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+          }}
+        />
+        <SectionHeading eyebrow="FAQ" title="Questions about digital marketing in Dubai." highlight={["Dubai."]} center />
+        <Faq />
       </section>
 
       <CtaSection />

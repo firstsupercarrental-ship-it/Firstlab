@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { CtaSection } from "@/components/cta-section";
 import { PageHero } from "@/components/page-hero";
 import { WorkGallery } from "@/components/work-gallery";
 
-export const metadata: Metadata = {
-  title: "Our Work",
-  description: "Video, 3D, branding, web and social work produced by First Lab, a digital marketing agency in Dubai.",
-};
+export const metadata = pageMetadata({
+  title: "Our Work – Video & Branding Projects",
+  description: "Explore video, 3D, branding, web and social media work produced by First Lab, a digital marketing agency in Dubai.",
+  path: "/work/",
+});
 
 export default function WorkPage() {
   return (

@@ -3,10 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
-import { site } from "@/lib/site";
-import { BlurText } from "../ui/blur-text";
-import { Button } from "../ui/button";
-import { Spotlight } from "../ui/spotlight";
 
 const VIDEOS = {
   wide: { src: "/media/hero-wide.mp4", poster: "/media/hero-wide-poster.jpg" },
@@ -23,16 +19,26 @@ export function Hero() {
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, 160]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-[100svh] min-h-[640px] overflow-hidden">
+    <section ref={ref} aria-label="First Lab showreel" className="relative h-[100svh] min-h-[600px] overflow-hidden">
       <motion.div style={{ scale }} className="absolute inset-0">
+        {/* Server-rendered poster so the first paint (and LCP) never waits for JavaScript. */}
+        <picture>
+          <source media="(max-aspect-ratio: 1/1)" srcSet={VIDEOS.tall.poster} />
+          <img
+            src={VIDEOS.wide.poster}
+            alt="First Lab digital marketing video production in Dubai"
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </picture>
         {video && (
           <video
             key={video.src}
-            className="h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
             src={video.src}
             poster={video.poster}
             autoPlay
@@ -40,58 +46,31 @@ export function Hero() {
             loop
             playsInline
             preload="auto"
+            aria-hidden
           />
         )}
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-ink-950" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-transparent" />
-      <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-b from-transparent via-black/50 to-ink-950" />
 
-      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container-x relative flex h-full flex-col justify-end pb-24 sm:pb-32">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
+      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container-x relative flex h-full items-end pb-24 sm:pb-28">
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="eyebrow mb-6 flex items-center gap-3"
+          transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-3xl text-3xl font-bold leading-tight tracking-tight sm:text-5xl"
         >
-          <span className="h-px w-10 bg-brand" />
-          {site.tagline}
-        </motion.p>
-        <BlurText
-          as="h1"
-          text="We make brands impossible to ignore."
-          highlight={["impossible", "ignore"]}
-          delay={0.4}
-          className="max-w-5xl text-5xl font-bold leading-[1] tracking-tight sm:text-7xl lg:text-8xl"
-        />
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.8 }}
-          className="mt-8 max-w-xl text-lg text-white/70"
-        >
-          SEO, branding, web &amp; app development, social media, online advertising and 3D video production — one
-          creative lab in the heart of Dubai.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 0.8 }}
-          className="mt-10 flex flex-wrap gap-4"
-        >
-          <Button href="/contact/">Start your project</Button>
-          <Button href="/services/" variant="ghost">
-            Explore services
-          </Button>
-        </motion.div>
+          <span className="text-gradient-brand">Digital marketing agency in Dubai</span> that makes brands impossible to
+          ignore.
+        </motion.h1>
       </motion.div>
 
       <motion.a
         href="#intro"
-        aria-label="Scroll down"
+        aria-label="Scroll to content"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
+        transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 sm:flex"
       >
         <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>

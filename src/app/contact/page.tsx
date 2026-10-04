@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons";
@@ -6,11 +5,14 @@ import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/ui/reveal";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description: "Get in touch with First Lab, a digital marketing agency at Azizi Riviera 46, Dubai. Call 056 136 8008 or email info@firstlab.ae.",
-};
+export const metadata = pageMetadata({
+  title: "Contact Our Dubai Marketing Agency",
+  description:
+    "Contact First Lab, a digital marketing agency at Azizi Riviera 46, Dubai. Call or WhatsApp 056 136 8008 or email info@firstlab.ae for a free consultation.",
+  path: "/contact/",
+});
 
 const channels = [
   { icon: Phone, label: "Call us", value: site.phone, href: site.phoneHref },

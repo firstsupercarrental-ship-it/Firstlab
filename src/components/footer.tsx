@@ -25,7 +25,7 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-2">
-          <h3 className="eyebrow mb-5">Explore</h3>
+          <h2 className="eyebrow mb-5">Explore</h2>
           <ul className="space-y-3 text-sm">
             {nav.map((n) => (
               <li key={n.href}>
@@ -38,7 +38,7 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-3">
-          <h3 className="eyebrow mb-5">Services</h3>
+          <h2 className="eyebrow mb-5">Services</h2>
           <ul className="space-y-3 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
@@ -51,7 +51,7 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-3">
-          <h3 className="eyebrow mb-5">Get In Touch</h3>
+          <h2 className="eyebrow mb-5">Get In Touch</h2>
           <ul className="space-y-4 text-sm text-white/60">
             <li>
               <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer" className="flex gap-3 hover:text-white">

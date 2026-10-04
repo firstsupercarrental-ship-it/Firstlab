@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { services, site } from "@/lib/site";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/json-ld";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -23,11 +25,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
-  return {
+  return pageMetadata({
     title: `${service.title} in Dubai`,
-    description: service.short,
-    openGraph: { images: [service.image] },
-  };
+    description: `${service.short} By First Lab, digital marketing agency in Dubai.`,
+    path: `/services/${service.slug}/`,
+  });
 }
 
 export default async function ServicePage({ params }: Params) {
@@ -39,6 +41,26 @@ export default async function ServicePage({ params }: Params) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: service.title,
+          serviceType: service.title,
+          description: service.intro,
+          image: `${site.url}${service.image}`,
+          url: `${site.url}/services/${service.slug}/`,
+          provider: { "@id": `${site.url}/#organization` },
+          areaServed: { "@type": "City", name: "Dubai" },
+        }}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services/" },
+          { name: service.title, path: `/services/${service.slug}/` },
+        ])}
+      />
       <PageHero eyebrow={`Service ${String(index + 1).padStart(2, "0")}`} title={`${service.title} in Dubai`} highlight={["Dubai"]} description={service.short}>
         <div className="mt-10 flex flex-wrap gap-4">
           <Button href="/contact/">Get a quote</Button>
