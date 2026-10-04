@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { Check } from "lucide-react";
 import { BlurText } from "../ui/blur-text";
 import { Button } from "../ui/button";
+import { Iphone17ProMax } from "../ui/iphone-17-pro-max";
 import { Reveal } from "../ui/reveal";
 
 const points = [
@@ -58,11 +59,10 @@ export function ReelShowcase() {
 
         <div className="order-1 flex justify-center lg:order-2" style={{ perspective: 1400 }}>
           <motion.div style={{ rotateX, rotateZ, scale }} className="relative">
-            <motion.div style={{ opacity: glow }} className="absolute -inset-10 rounded-full bg-brand/40 blur-[90px]" aria-hidden />
-            <div className="relative w-[260px] rounded-[2.75rem] border border-white/15 bg-ink-800 p-2.5 shadow-2xl sm:w-[300px]">
-              <div className="absolute left-1/2 top-4 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-black" aria-hidden />
+            <motion.div style={{ opacity: glow }} className="absolute -inset-16 rounded-full bg-brand/35 blur-[110px]" aria-hidden />
+            <Iphone17ProMax width="clamp(280px, 78vw, 400px)">
               <video
-                className="aspect-[9/16] w-full rounded-[2.25rem] object-cover"
+                className="h-full w-full object-cover"
                 src="/media/hero-vertical.mp4"
                 poster="/media/hero-vertical-poster.jpg"
                 autoPlay
@@ -70,8 +70,9 @@ export function ReelShowcase() {
                 loop
                 playsInline
                 preload="metadata"
+                aria-label="First Lab vertical social media reel"
               />
-            </div>
+            </Iphone17ProMax>
           </motion.div>
         </div>
       </div>
