@@ -17,14 +17,16 @@ export function NumberTicker({ value, suffix = "", className }: { value: number;
   useEffect(
     () =>
       spring.on("change", (latest) => {
-        if (ref.current) ref.current.textContent = Math.round(latest).toString() + suffix;
+        if (ref.current) ref.current.textContent = Math.round(latest).toString();
       }),
-    [spring, suffix],
+    [spring],
   );
 
   return (
-    <span ref={ref} className={className}>
-      0{suffix}
+    <span className={className}>
+      <span ref={ref}>0</span>
+      {/* Suffix in the body font: the display font draws symbols like ° poorly. */}
+      {suffix && <span className="font-sans font-semibold">{suffix}</span>}
     </span>
   );
 }
