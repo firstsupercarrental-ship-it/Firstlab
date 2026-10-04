@@ -48,11 +48,16 @@ export default function Home() {
           highlight={["lab", "Dubai"]}
           text="First Lab is a full-service digital marketing agency in Dubai. We blend data, design and storytelling to help businesses get found, get noticed and get chosen — online and offline."
         />
-        <div className="grid grid-cols-3 gap-4 lg:mb-14">
+        {/* Phones: one card with stacked rows. sm+: three separate cards. */}
+        <div className="grid divide-y divide-white/10 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] sm:grid-cols-3 sm:gap-4 sm:divide-y-0 sm:overflow-visible sm:rounded-none sm:border-0 sm:bg-transparent lg:mb-14">
           {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.1} className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-6">
-              <NumberTicker value={s.value} suffix={s.suffix} className="block font-display text-3xl text-brand sm:text-4xl" />
-              <p className="mt-3 text-xs leading-snug text-white/60 sm:text-sm">{s.label}</p>
+            <Reveal
+              key={s.label}
+              delay={i * 0.1}
+              className="flex items-center gap-5 px-6 py-5 sm:block sm:rounded-3xl sm:border sm:border-white/10 sm:bg-white/[0.03] sm:p-6"
+            >
+              <NumberTicker value={s.value} suffix={s.suffix} className="block w-24 shrink-0 whitespace-nowrap font-display text-[1.75rem] text-brand min-[400px]:w-32 min-[400px]:text-4xl sm:w-auto sm:text-3xl xl:text-4xl" />
+              <p className="text-sm leading-snug text-white/60 sm:mt-3">{s.label}</p>
             </Reveal>
           ))}
         </div>
