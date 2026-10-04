@@ -36,7 +36,7 @@ export function ServicesGrid() {
               <span className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-white/20 bg-black/50 transition-all duration-500 group-hover:rotate-45 group-hover:border-brand group-hover:bg-brand group-hover:text-black">
                 <ArrowUpRight className="size-4" />
               </span>
-              <div className="absolute inset-x-0 bottom-0 p-6" style={{ transform: "translateZ(40px)" }}>
+              <div className="absolute inset-x-0 bottom-0 p-6 lg:[transform:translateZ(40px)]">
                 <h3 className="text-xl font-bold capitalize leading-tight">{s.title}</h3>
                 <p className="mt-2 max-h-0 overflow-hidden text-sm text-white/70 opacity-0 transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100">
                   {s.short}

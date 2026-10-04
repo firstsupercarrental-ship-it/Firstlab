@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { Check } from "lucide-react";
 import { BlurText } from "../ui/blur-text";
 import { Button } from "../ui/button";
+import { useRichMotion } from "@/hooks/use-rich-motion";
 import { Iphone17ProMax } from "../ui/iphone-17-pro-max";
 import { Reveal } from "../ui/reveal";
 
@@ -18,6 +19,7 @@ const points = [
 /** Phone-framed vertical reel that rotates upright as you scroll (21st.dev "Container Scroll"). */
 export function ReelShowcase() {
   const ref = useRef<HTMLElement>(null);
+  const rich = useRichMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] });
   const rotateX = useTransform(scrollYProgress, [0, 1], [28, 0]);
   const rotateZ = useTransform(scrollYProgress, [0, 1], [-8, 0]);
@@ -57,9 +59,9 @@ export function ReelShowcase() {
           </Reveal>
         </div>
 
-        <div className="order-1 flex justify-center lg:order-2" style={{ perspective: 1400 }}>
-          <motion.div style={{ rotateX, rotateZ, scale }} className="relative">
-            <motion.div style={{ opacity: glow }} className="absolute -inset-24 bg-[radial-gradient(closest-side,rgba(226,113,30,0.45),transparent)]" aria-hidden />
+        <div className="order-1 flex justify-center lg:order-2" style={rich ? { perspective: 1400 } : undefined}>
+          <motion.div style={rich ? { rotateX, rotateZ, scale } : undefined} className="relative">
+            <motion.div style={rich ? { opacity: glow } : { opacity: 0.6 }} className="absolute -inset-24 bg-[radial-gradient(closest-side,rgba(226,113,30,0.45),transparent)]" aria-hidden />
             <Iphone17ProMax width="clamp(280px, 78vw, 400px)">
               <video
                 className="h-full w-full object-cover"

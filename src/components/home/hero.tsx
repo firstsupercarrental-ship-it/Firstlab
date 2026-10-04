@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
+import { useRichMotion } from "@/hooks/use-rich-motion";
 import { HeroHeadline } from "./hero-headline";
 
 const VIDEOS = {
@@ -12,6 +13,7 @@ const VIDEOS = {
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const rich = useRichMotion();
   // Pick the landscape or portrait cut after mount so phones only download the small vertical file.
   const [video, setVideo] = useState<(typeof VIDEOS)["wide"] | null>(null);
   useEffect(() => {
@@ -25,7 +27,7 @@ export function Hero() {
 
   return (
     <section ref={ref} aria-label="First Lab showreel" className="relative h-[100svh] min-h-[600px] overflow-hidden">
-      <motion.div style={{ scale }} className="absolute inset-0">
+      <motion.div style={rich ? { scale } : undefined} className="absolute inset-0">
         {/* Server-rendered poster so the first paint (and LCP) never waits for JavaScript. */}
         <picture>
           <source media="(max-aspect-ratio: 1/1)" srcSet={VIDEOS.tall.poster} />
@@ -55,7 +57,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/25" />
       <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-b from-transparent via-black/55 to-ink-950" />
 
-      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container-x relative flex h-full items-end justify-center pb-28 sm:pb-32">
+      <motion.div style={rich ? { y: contentY, opacity: contentOpacity } : undefined} className="container-x relative flex h-full items-end justify-center pb-28 sm:pb-32">
         <HeroHeadline />
       </motion.div>
 

@@ -39,7 +39,7 @@ export function Navbar() {
         className={cn(
           "mx-auto flex max-w-7xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-6",
           scrolled || open
-            ? "border-white/10 bg-black/80 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md"
+            ? "border-white/10 bg-black/85 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.8)] lg:backdrop-blur-md"
             : "border-transparent bg-transparent",
         )}
       >

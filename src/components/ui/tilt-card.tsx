@@ -2,14 +2,18 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { useRichMotion } from "@/hooks/use-rich-motion";
 
 /** 3D perspective tilt on hover (21st.dev "3D Card"). */
 export function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
+  const rich = useRichMotion();
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
   const rotateX = useSpring(useTransform(my, [0, 1], [8, -8]), { stiffness: 180, damping: 18 });
   const rotateY = useSpring(useTransform(mx, [0, 1], [-8, 8]), { stiffness: 180, damping: 18 });
+
+  if (!rich) return <div className={className}>{children}</div>;
 
   return (
     <div style={{ perspective: 1200 }} className={className}>
