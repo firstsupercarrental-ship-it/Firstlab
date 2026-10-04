@@ -17,7 +17,7 @@ export function Button({ href, children, variant = "primary", className, externa
     "group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-colors",
     variant === "primary"
       ? "bg-brand text-black shadow-[0_0_40px_-8px_rgba(226,113,30,0.8)] hover:bg-brand-400"
-      : "border border-white/15 bg-white/5 text-white backdrop-blur hover:border-brand/60 hover:bg-white/10",
+      : "border border-white/15 bg-white/5 text-white hover:border-brand/60 hover:bg-white/10",
     className,
   );
   const inner = (

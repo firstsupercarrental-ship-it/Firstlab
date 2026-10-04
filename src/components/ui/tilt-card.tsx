@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import { cn } from "@/lib/utils";
 
 /** 3D perspective tilt on hover (21st.dev "3D Card"). */
 export function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
@@ -26,7 +25,7 @@ export function TiltCard({ children, className }: { children: React.ReactNode; c
           my.set(0.5);
         }}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className={cn("h-full will-change-transform")}
+        className="h-full"
       >
         {children}
       </motion.div>

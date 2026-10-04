@@ -33,7 +33,7 @@ export function ServicesGrid() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500 group-hover:from-black/95" />
               <span className="absolute left-5 top-5 font-display text-xs text-white/60">{String(i + 1).padStart(2, "0")}</span>
-              <span className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-white/20 bg-black/30 backdrop-blur transition-all duration-500 group-hover:rotate-45 group-hover:border-brand group-hover:bg-brand group-hover:text-black">
+              <span className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-white/20 bg-black/50 transition-all duration-500 group-hover:rotate-45 group-hover:border-brand group-hover:bg-brand group-hover:text-black">
                 <ArrowUpRight className="size-4" />
               </span>
               <div className="absolute inset-x-0 bottom-0 p-6" style={{ transform: "translateZ(40px)" }}>

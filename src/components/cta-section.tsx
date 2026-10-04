@@ -15,7 +15,7 @@ export function CtaSection({
     <section className="container-x py-24">
       <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-ink-800 via-ink-900 to-black px-6 py-20 text-center sm:px-16">
         <Meteors number={22} />
-        <div aria-hidden className="absolute -bottom-40 left-1/2 h-80 w-[40rem] -translate-x-1/2 rounded-full bg-brand/25 blur-[120px]" />
+        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_45%_55%_at_50%_100%,rgba(226,113,30,0.3),transparent_75%)]" />
         <div className="relative">
           <p className="eyebrow mb-6">Let&apos;s Talk</p>
           <BlurText

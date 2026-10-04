@@ -39,7 +39,7 @@ export function Navbar() {
         className={cn(
           "mx-auto flex max-w-7xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-6",
           scrolled || open
-            ? "border-white/10 bg-black/60 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+            ? "border-white/10 bg-black/80 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md"
             : "border-transparent bg-transparent",
         )}
       >
@@ -102,7 +102,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -16, scale: 0.98 }}
             transition={{ duration: 0.3 }}
-            className="mx-auto mt-2 max-w-7xl rounded-3xl border border-white/10 bg-black/90 p-6 backdrop-blur-xl md:hidden"
+            className="mx-auto mt-2 max-w-7xl rounded-3xl border border-white/10 bg-black/95 p-6 md:hidden"
           >
             <ul className="flex flex-col gap-1">
               {nav.map((item, i) => (

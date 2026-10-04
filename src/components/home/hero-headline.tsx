@@ -42,18 +42,17 @@ export function HeroHeadline() {
           })}
           {li === LINES.length - 1 && (
             <motion.span
-              layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.35 + n * 0.06, duration: 0.6, layout: { duration: 0.5, ease: EASE } }}
+              transition={{ delay: 0.35 + n * 0.06, duration: 0.6 }}
               className="relative inline-flex overflow-hidden pb-[0.12em] align-bottom"
             >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                   key={ROTATING[index]}
-                  initial={{ y: "100%", opacity: 0, filter: "blur(8px)" }}
-                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                  exit={{ y: "-100%", opacity: 0, filter: "blur(8px)" }}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
                   transition={{ duration: 0.55, ease: EASE }}
                   className="inline-block whitespace-nowrap pr-[0.06em] font-serif font-normal italic text-gradient-brand"
                 >

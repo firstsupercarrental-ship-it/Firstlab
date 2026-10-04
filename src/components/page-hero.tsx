@@ -17,8 +17,9 @@ export function PageHero({ eyebrow, title, highlight, description, children }: P
     <section className="relative overflow-hidden pb-20 pt-40 sm:pt-48">
       <GridBackground />
       <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" />
-      <div aria-hidden className="absolute left-1/2 top-0 h-80 w-[60rem] -translate-x-1/2 rounded-full bg-brand/10 blur-[120px]" />
-      <div className="container-x relative">
+      <div aria-hidden className="absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(226,113,30,0.14),transparent_70%)]" />
+      <div aria-hidden className="absolute inset-x-0 bottom-0 z-[2] h-40 bg-gradient-to-b from-transparent to-ink-950" />
+      <div className="container-x relative z-10">
         <Reveal>
           <p className="eyebrow mb-6">{eyebrow}</p>
         </Reveal>

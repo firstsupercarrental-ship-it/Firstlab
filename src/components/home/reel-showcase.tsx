@@ -59,7 +59,7 @@ export function ReelShowcase() {
 
         <div className="order-1 flex justify-center lg:order-2" style={{ perspective: 1400 }}>
           <motion.div style={{ rotateX, rotateZ, scale }} className="relative">
-            <motion.div style={{ opacity: glow }} className="absolute -inset-16 rounded-full bg-brand/35 blur-[110px]" aria-hidden />
+            <motion.div style={{ opacity: glow }} className="absolute -inset-24 bg-[radial-gradient(closest-side,rgba(226,113,30,0.45),transparent)]" aria-hidden />
             <Iphone17ProMax width="clamp(280px, 78vw, 400px)">
               <video
                 className="h-full w-full object-cover"
