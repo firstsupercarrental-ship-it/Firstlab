@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment } from "react";
-import { motion } from "motion/react";
+import { useInViewOnce } from "@/hooks/use-in-view-once";
 import { cn } from "@/lib/utils";
 
 type BlurTextProps = {
@@ -13,44 +13,23 @@ type BlurTextProps = {
   as?: "h1" | "h2" | "h3" | "p";
 };
 
-/** Word-by-word fade-up headline (21st.dev "Blur Text" pattern, without the GPU-heavy blur filter). */
-export function BlurText({
-  text,
-  className,
-  highlight = [],
-  delay = 0,
-  as = "h2",
-}: BlurTextProps) {
-  const Tag = motion[as];
+/** Word-by-word fade-up headline (21st.dev "Blur Text" pattern), driven by CSS transitions. */
+export function BlurText({ text, className, highlight = [], delay = 0, as: Tag = "h2" }: BlurTextProps) {
+  const [ref, inView] = useInViewOnce<HTMLHeadingElement>(0.3);
   const words = text.split(" ");
   return (
     <Tag
-      className={cn("flex flex-wrap gap-x-[0.25em]", className)}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ staggerChildren: 0.07, delayChildren: delay }}
+      ref={ref}
+      data-inview={inView}
+      className={cn("reveal-words flex flex-wrap gap-x-[0.25em]", className)}
+      style={{ "--reveal-delay": `${delay}s` } as React.CSSProperties}
     >
       {words.map((word, i) => (
         // Fragment keeps a real space between words so crawlers and screen readers read normal text.
         <Fragment key={i}>
-          <motion.span
-            className={cn(
-              "inline-block",
-              highlight.includes(word.replace(/[^\w]/g, "")) &&
-                "text-gradient-brand",
-            )}
-            variants={{
-              hidden: { opacity: 0, y: "0.4em" },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-              },
-            }}
-          >
-            {word}
-          </motion.span>{" "}
+          <span style={{ "--i": i } as React.CSSProperties} className="reveal-word inline-block">
+            <span className={cn(highlight.includes(word.replace(/[^\w]/g, "")) && "text-gradient-brand")}>{word}</span>
+          </span>{" "}
         </Fragment>
       ))}
     </Tag>

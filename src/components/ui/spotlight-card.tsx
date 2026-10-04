@@ -24,7 +24,7 @@ export function SpotlightCard({ children, className }: { children: React.ReactNo
         x.set(-400);
         y.set(-400);
       }}
-      className={cn("group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-px", className)}
+      className={cn("group relative isolate overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-px", className)}
     >
       <motion.div className="pointer-events-none absolute inset-0 rounded-3xl" style={{ background: border }} aria-hidden />
       <div className="relative h-full rounded-[calc(1.5rem-1px)] bg-ink-900">

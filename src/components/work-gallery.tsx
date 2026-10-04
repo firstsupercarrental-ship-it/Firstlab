@@ -48,7 +48,7 @@ export function WorkGallery() {
       </div>
 
       <motion.div layout className="grid gap-5 md:grid-cols-3">
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence mode="popLayout" initial={false}>
           {visible.map((item) => (
             <motion.div
               layout
@@ -57,7 +57,7 @@ export function WorkGallery() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.92 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className={cn("group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-800", active === "All" && item.className, active !== "All" && "aspect-[4/5]")}
+              className={cn("group relative isolate overflow-hidden rounded-3xl border border-white/10 bg-ink-800", active === "All" && item.className, active !== "All" && "aspect-[4/5]")}
             >
               <Link href={item.href} className="absolute inset-0">
                 {"video" in item ? (

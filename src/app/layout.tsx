@@ -81,7 +81,11 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${michroma.variable} ${serif.variable}`}>
+    <html lang="en" className={`${jakarta.variable} ${michroma.variable} ${serif.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Runs before paint: scroll-reveal content is only hidden when JS can reveal it again. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body className="font-sans">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Navbar />

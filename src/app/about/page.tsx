@@ -36,7 +36,7 @@ export default function AboutPage() {
       <section className="pb-24">
         <Marquee className="[--duration:60s] [--gap:1.25rem]" repeat={2}>
           {services.map((s) => (
-            <div key={s.slug} className="relative h-72 w-56 shrink-0 overflow-hidden rounded-3xl border border-white/10 sm:h-96 sm:w-72">
+            <div key={s.slug} className="relative isolate h-72 w-56 shrink-0 overflow-hidden rounded-3xl border border-white/10 sm:h-96 sm:w-72">
               <Image src={s.image} alt={s.title} fill sizes="288px" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <p className="absolute bottom-5 left-5 right-5 font-bold capitalize">{s.title}</p>

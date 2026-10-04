@@ -47,7 +47,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-ink-800 to-ink-900 p-6 sm:p-10">
+    <div className="relative isolate overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-ink-800 to-ink-900 p-6 sm:p-10">
       <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_100%_0%,rgba(226,113,30,0.16),transparent_45%)]" />
       <h2 className="relative text-3xl font-bold">Let&apos;s Talk</h2>
       <p className="relative mt-2 text-white/60">Fields marked * are required.</p>

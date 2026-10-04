@@ -53,7 +53,7 @@ export function Iphone17ProMax({ children, className, width = "clamp(280px, 78vw
           style={{ borderRadius: u(0.162), padding: u(0.022) }}
         >
           {/* Display */}
-          <div className="relative h-full w-full overflow-hidden bg-ink-900" style={{ borderRadius: u(0.142) }}>
+          <div className="relative isolate h-full w-full overflow-hidden bg-ink-900" style={{ borderRadius: u(0.142) }}>
             {children}
 
             {/* Status bar */}

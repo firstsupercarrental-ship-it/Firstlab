@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/site";
+import { Reveal } from "./ui/reveal";
 import { TiltCard } from "./ui/tilt-card";
 
 /** Image cards for all services with 3D tilt and staggered entrance. */
@@ -12,17 +12,11 @@ export function ServicesGrid() {
   return (
     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {services.map((s, i) => (
-        <motion.div
-          key={s.slug}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, delay: (i % 4) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <Reveal key={s.slug} y={40} delay={(i % 4) * 0.08}>
           <TiltCard className="h-full">
             <Link
               href={`/services/${s.slug}/`}
-              className="group relative block aspect-[3/4] overflow-hidden rounded-3xl border border-white/10 bg-ink-800"
+              className="group relative isolate block aspect-[3/4] overflow-hidden rounded-3xl border border-white/10 bg-ink-800"
             >
               <Image
                 src={s.image}
@@ -44,7 +38,7 @@ export function ServicesGrid() {
               </div>
             </Link>
           </TiltCard>
-        </motion.div>
+        </Reveal>
       ))}
     </div>
   );

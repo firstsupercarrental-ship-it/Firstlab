@@ -29,12 +29,7 @@ export function Navbar() {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-50 px-4 pt-4"
-    >
+    <header className="fixed inset-x-0 top-0 z-50 animate-[nav-in_0.8s_cubic-bezier(0.22,1,0.36,1)_backwards] px-4 pt-4">
       <nav
         className={cn(
           "mx-auto flex max-w-7xl items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-6",
@@ -125,6 +120,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

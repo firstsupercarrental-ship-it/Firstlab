@@ -25,7 +25,7 @@ export function Button({ href, children, variant = "primary", className, externa
       {variant === "primary" && (
         <span
           aria-hidden
-          className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/40 to-transparent"
+          className="absolute inset-0 hidden -translate-x-full animate-shimmer bg-gradient-to-r md:block from-transparent via-white/40 to-transparent"
         />
       )}
       <span className="relative">{children}</span>

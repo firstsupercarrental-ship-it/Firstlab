@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
 import { process } from "@/lib/site";
+import { Reveal } from "./ui/reveal";
 
 /** Vertical timeline whose line draws itself as you scroll (21st.dev "Timeline"). */
 export function ProcessTimeline() {
@@ -20,12 +21,10 @@ export function ProcessTimeline() {
       />
       <div className="space-y-16">
         {process.map((p, i) => (
-          <motion.div
+          <Reveal
             key={p.step}
-            initial={{ opacity: 0, x: i % 2 ? 40 : -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            x={i % 2 ? 40 : -40}
+            y={0}
             className={`relative pl-16 sm:w-1/2 sm:pl-0 ${i % 2 ? "sm:ml-auto sm:pl-14" : "sm:pr-14 sm:text-right"}`}
           >
             <span
@@ -37,7 +36,7 @@ export function ProcessTimeline() {
             </span>
             <h3 className="text-2xl font-bold">{p.title}</h3>
             <p className="mt-3 leading-relaxed text-white/60">{p.text}</p>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
     </div>

@@ -61,17 +61,14 @@ export function Hero() {
         <HeroHeadline />
       </motion.div>
 
-      <motion.a
+      <a
         href="#intro"
         aria-label="Scroll to content"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 sm:flex"
+        className="animate-[fade-in_0.8s_ease_1.5s_backwards] absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 sm:flex"
       >
         <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
         <ChevronDown className="size-5 animate-bounce" />
-      </motion.a>
+      </a>
     </section>
   );
 }

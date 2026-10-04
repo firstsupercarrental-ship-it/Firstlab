@@ -72,7 +72,7 @@ export default async function ServicePage({ params }: Params) {
 
       <section className="container-x grid gap-14 pb-28 lg:grid-cols-2 lg:items-center">
         <Reveal>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10">
+          <div className="relative isolate aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10">
             <Image src={service.image} alt={service.title} fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
