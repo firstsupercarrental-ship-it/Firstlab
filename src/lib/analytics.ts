@@ -1,11 +1,11 @@
 /**
  * Google Analytics 4 + Google Ads, loaded through one Google tag (gtag.js).
- * IDs come from Vercel environment variables, so tracking is off until they
- * are set (Project → Settings → Environment Variables), then redeploy:
+ * The GA4 ID is built in; Vercel environment variables can override it or add
+ * Google Ads (Project → Settings → Environment Variables, then redeploy):
  *   NEXT_PUBLIC_GA_ID          GA4 Measurement ID, e.g. G-XXXXXXXXXX
  *   NEXT_PUBLIC_GOOGLE_ADS_ID  Google Ads tag ID,  e.g. AW-123456789
  */
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-C1CBY7SKY1";
 export const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "";
 export const TAG_IDS = [GA_ID, ADS_ID].filter(Boolean);
 
