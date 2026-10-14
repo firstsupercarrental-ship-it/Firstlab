@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { CheckCircle2, Send } from "lucide-react";
+import { track } from "@/lib/analytics";
 import { services, site } from "@/lib/site";
 import { WhatsAppIcon } from "../icons";
 
@@ -41,6 +42,8 @@ export function ContactForm() {
       via === "email"
         ? `mailto:${site.email}?subject=${encodeURIComponent("New project enquiry")}&body=${encodeURIComponent(text)}`
         : `${site.whatsapp}?text=${encodeURIComponent(text)}`;
+    // Main Google Ads conversion: a completed contact form.
+    track("generate_lead", { method: via === "email" ? "email" : "whatsapp", service: String(new FormData(form).get("service") || "") });
     window.open(url, via === "email" ? "_self" : "_blank", "noopener");
     setSent(true);
     form.reset();
