@@ -5,7 +5,7 @@
  *   NEXT_PUBLIC_GA_ID          GA4 Measurement ID, e.g. G-XXXXXXXXXX
  *   NEXT_PUBLIC_GOOGLE_ADS_ID  Google Ads tag ID,  e.g. AW-123456789
  */
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-C1CBY7SKY1";
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-N3CKF3D37W";
 export const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "";
 export const TAG_IDS = [GA_ID, ADS_ID].filter(Boolean);
 
