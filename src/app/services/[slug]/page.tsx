@@ -11,6 +11,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { services, site } from "@/lib/site";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { serviceMessage, whatsappHref } from "@/lib/whatsapp";
 import { JsonLd } from "@/components/json-ld";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -63,8 +64,8 @@ export default async function ServicePage({ params }: Params) {
       />
       <PageHero eyebrow={`Service ${String(index + 1).padStart(2, "0")}`} title={`${service.title} in Dubai`} highlight={["Dubai"]} description={service.short}>
         <div className="mt-10 flex flex-wrap gap-4">
-          <Button href="/contact/">Get a quote</Button>
-          <Button href={site.whatsapp} variant="ghost" external>
+          <Button href={`/contact/?service=${service.slug}`}>Get a quote</Button>
+          <Button href={whatsappHref(serviceMessage(service.title))} variant="ghost" external>
             WhatsApp us
           </Button>
         </div>
@@ -127,7 +128,7 @@ export default async function ServicePage({ params }: Params) {
         </div>
       </section>
 
-      <CtaSection title={`Let's talk about ${service.title.toLowerCase()}.`} />
+      <CtaSection title={`Let's talk about ${service.title.toLowerCase()}.`} contactHref={`/contact/?service=${service.slug}`} />
     </>
   );
 }

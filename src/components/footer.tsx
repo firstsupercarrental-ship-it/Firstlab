@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { nav, services, site } from "@/lib/site";
 import { InstagramIcon, WhatsAppIcon } from "./icons";
+import { WhatsAppLink } from "./whatsapp-link";
 
 export function Footer() {
   return (
@@ -18,9 +19,9 @@ export function Footer() {
             <a href={site.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid size-10 place-items-center rounded-full border border-white/10 text-white/70 transition hover:border-brand hover:text-brand">
               <InstagramIcon className="size-5" />
             </a>
-            <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="grid size-10 place-items-center rounded-full border border-white/10 text-white/70 transition hover:border-brand hover:text-brand">
+            <WhatsAppLink aria-label="WhatsApp" className="grid size-10 place-items-center rounded-full border border-white/10 text-white/70 transition hover:border-brand hover:text-brand">
               <WhatsAppIcon className="size-5" />
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
 

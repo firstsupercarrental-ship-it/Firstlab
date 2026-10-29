@@ -1,15 +1,17 @@
-import { site } from "@/lib/site";
 import { BlurText } from "./ui/blur-text";
 import { Button } from "./ui/button";
 import { Meteors } from "./ui/meteors";
 import { Reveal } from "./ui/reveal";
+import { WhatsAppButton } from "./whatsapp-link";
 
 export function CtaSection({
   title = "Ready to grow your brand in Dubai?",
   text = "Tell us about your goals and we will come back with a clear plan, timeline and quote.",
+  contactHref = "/contact/",
 }: {
   title?: string;
   text?: string;
+  contactHref?: string;
 }) {
   return (
     <section className="container-x py-24">
@@ -29,10 +31,8 @@ export function CtaSection({
           <Reveal delay={0.3}>
             <p className="mx-auto mt-6 max-w-xl text-white/60">{text}</p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button href="/contact/">Start a project</Button>
-              <Button href={site.whatsapp} variant="ghost" external>
-                WhatsApp us
-              </Button>
+              <Button href={contactHref}>Start a project</Button>
+              <WhatsAppButton>WhatsApp us</WhatsAppButton>
             </div>
           </Reveal>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { CheckCircle2, Send } from "lucide-react";
 import { track } from "@/lib/analytics";
@@ -16,6 +16,14 @@ const field =
  */
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const serviceRef = useRef<HTMLSelectElement>(null);
+
+  // "Get a quote" on a service page links here with ?service=<slug>: preselect it.
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("service");
+    const service = services.find((s) => s.slug === slug);
+    if (service && serviceRef.current) serviceRef.current.value = service.title;
+  }, [sent]);
 
   function buildMessage(form: HTMLFormElement) {
     const d = new FormData(form);
@@ -87,7 +95,7 @@ export function ContactForm() {
             </label>
             <label className="sm:col-span-2">
               <span className="sr-only">Service</span>
-              <select name="service" defaultValue="" className={`${field} appearance-none`}>
+              <select ref={serviceRef} name="service" defaultValue="" className={`${field} appearance-none`}>
                 <option value="">Service you&apos;re interested in</option>
                 {services.map((s) => (
                   <option key={s.slug} value={s.title} className="bg-ink-900">

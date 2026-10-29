@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { site } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
+import { whatsappHref, whatsappMessage } from "@/lib/whatsapp";
 
 export const metadata = pageMetadata({
   title: "Contact Our Dubai Marketing Agency",
@@ -16,7 +17,7 @@ export const metadata = pageMetadata({
 
 const channels = [
   { icon: Phone, label: "Call us", value: site.phone, href: site.phoneHref },
-  { icon: WhatsAppIcon, label: "WhatsApp", value: "Chat with the team", href: site.whatsapp, external: true },
+  { icon: WhatsAppIcon, label: "WhatsApp", value: "Chat with the team", href: whatsappHref(whatsappMessage("/contact/")), external: true },
   { icon: Mail, label: "Email", value: site.email, href: `mailto:${site.email}` },
   { icon: InstagramIcon, label: "Instagram", value: "@firstlabmedia", href: site.instagram, external: true },
 ];
